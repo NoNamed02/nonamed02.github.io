@@ -1,0 +1,10 @@
+/*
+ * Custom overrides for the Chirpy theme.
+ * Add project-specific style tweaks here.
+ */
+
+/* Example: keep post hero images from feeling oversized */
+.post .preview-img img,
+.post-content img {
+  border-radius: 0.75rem;
+}
