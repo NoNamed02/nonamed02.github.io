@@ -1,0 +1,244 @@
+/* ==========================================================
+   기본 테마 — 색과 크기는 전부 여기 변수만 바꾸면 됩니다
+   ========================================================== */
+:root {
+  --bg: #ffffff;
+  --text: #1f2328;
+  --text-muted: #6a737d;
+  --accent: #0969da;
+  --border: #e4e7eb;
+  --code-bg: #f4f6f8;
+
+  --content-width: 42rem;
+  --deco-opacity: 0.15; /* 배경 캐릭터 일러스트의 투명도 */
+  --font-body: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
+    Pretendard, "Noto Sans KR", "Segoe UI", sans-serif;
+  --font-mono: "SF Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #14171a;
+    --text: #e6e8ea;
+    --text-muted: #8b949e;
+    --accent: #58a6ff;
+    --border: #2d333b;
+    --code-bg: #1f242a;
+    --deco-opacity: 0.22; /* 어두운 배경에서는 조금 더 진하게 */
+  }
+}
+
+/* ==========================================================
+   리셋 & 기본 타이포그래피
+   ========================================================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  line-height: 1.75;
+  color: var(--text);
+  background: var(--bg);
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 2rem 1.25rem 4rem;
+  word-break: keep-all; /* 한글 단어 중간에서 줄바꿈 방지 */
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h1, h2, h3 {
+  line-height: 1.35;
+  margin-top: 2.5rem;
+  margin-bottom: 0.75rem;
+}
+
+p, ul, ol, blockquote {
+  margin-bottom: 1.1rem;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+blockquote {
+  border-left: 3px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+}
+
+code {
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+  background: var(--code-bg);
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+}
+
+pre {
+  background: var(--code-bg);
+  padding: 1rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin-bottom: 1.1rem;
+}
+
+pre code {
+  background: none;
+  padding: 0;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2.5rem 0;
+}
+
+/* ==========================================================
+   헤더 & 네비게이션
+   ========================================================== */
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 2.5rem;
+}
+
+.site-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.site-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: 50% 30%; /* 얼굴이 원 안에 오도록 살짝 위쪽을 보여준다 */
+  border: 2px solid var(--border);
+}
+
+.site-nav {
+  display: flex;
+  gap: 1rem;
+}
+
+.site-nav a {
+  color: var(--text-muted);
+}
+
+.site-nav a[aria-current="page"] {
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* ==========================================================
+   글 목록 (index.html)
+   ========================================================== */
+.post-item {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 0.5rem 0;
+}
+
+.post-item time {
+  flex-shrink: 0;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.post-item a {
+  color: var(--text);
+  font-weight: 500;
+}
+
+.post-item a:hover {
+  color: var(--accent);
+}
+
+/* ==========================================================
+   글 본문 (posts/*.html)
+   ========================================================== */
+.post-header h1 {
+  margin-top: 0;
+  font-size: 1.75rem;
+}
+
+.post-meta {
+  color: var(--text-muted);
+  font-size: 0.875rem;
+}
+
+.post-content {
+  margin-top: 2rem;
+}
+
+.profile-image {
+  width: 200px;
+  border-radius: 16px;
+  margin-bottom: 1.5rem;
+}
+
+/* ==========================================================
+   푸터 & 유틸리티
+   ========================================================== */
+.site-footer {
+  margin-top: 4rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+/* ==========================================================
+   배경 장식 — 오른쪽 아래에 은은하게 깔리는 캐릭터 일러스트
+   ========================================================== */
+body::before {
+  content: "";
+  position: fixed;
+  right: 24px;
+  bottom: 0;
+  width: min(380px, 38vw);
+  height: min(85vh, 980px);
+  background: url("../images/hoshino-full.png") no-repeat right bottom / contain;
+  opacity: var(--deco-opacity);
+  pointer-events: none; /* 클릭·드래그를 방해하지 않도록 */
+  z-index: -1;          /* 항상 본문 뒤에 */
+}
+
+/* 좁은 화면에서는 본문과 겹쳐 읽기 불편하므로 숨긴다 */
+@media (max-width: 720px) {
+  body::before {
+    display: none;
+  }
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
