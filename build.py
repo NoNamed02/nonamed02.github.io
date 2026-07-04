@@ -63,6 +63,7 @@ def parse_post(path):
     body = markdown2.markdown(
         m.group(2), extras=["fenced-code-blocks", "tables"]
     )
+    body = body.replace("=&gt;", "→")
     return meta, str(body)
 
 
