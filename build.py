@@ -61,7 +61,7 @@ def parse_post(path):
         raise BuildError(f"{path.name}의 date는 YYYY-MM-DD 형식이어야 합니다")
 
     body = markdown2.markdown(
-        m.group(2), extras=["fenced-code-blocks", "tables"]
+        m.group(2), extras=["fenced-code-blocks", "tables", "break-on-newline"]
     )
     body = body.replace("=&gt;", "→")
     return meta, str(body)
