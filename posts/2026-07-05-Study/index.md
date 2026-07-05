@@ -44,7 +44,7 @@ while (게임이 실행 중)
 유니티로 예시를 들면, A, B, C라는 스크립트가 있고, 각각 update를 가지고 있다. 이러한 프로젝트를 빌드할 시, 엔진은 리스트에 이 3개의 스크립트를 리스트에 넣고, 이후 매 프레임 해당 부분을 실행하게 된다. 이를 최적화 하는 방법은 뭐가 있을까?
 
 이에 대한 한가지 대답으로 아래와 같은 패턴이 생겼다
->Custom Update Manager
+>**Custom Update Manager**
 각 cs들은 Tick이라는 부분에 update에 해당하는 부분을 작성 한 뒤, 이를 전역 update manager가 받아서 처리하는 방식으로 수정하는 것이다.
 
 이렇게 하게되면 오버헤드는 논리적으로 매 프레임 1번만 일어나기에, 최적화를 이루어 낼 수 있다고 할 수 있다.
@@ -104,6 +104,7 @@ public class EmptyUpdate : MonoBehaviour
 ScriptRunBehaviourUpdate가 0.050ms정도로 늘어난 것을 확인할 수 있다.
 
 이것으로 새로운 사실을 검증할 수 있다.
+
 **3. 빈 update()도 무조건 호출된다**
 할 일이 없어도 호출이 일어나는것은 낭비이지만, 이를 관리하는 것은 엔진이기에, 이를 관리하느 것은 불가능 하다.
 
@@ -169,8 +170,7 @@ public static class CustomUpdateManager
 }
 ```
 
->PlayerLoop란 무엇인가?
-
+>**PlayerLoop란 무엇인가?**
 Unity가 매 프레임마다 해야 하는것을 데이터로 만들어 둔 것
 즉, 매 프레임마다 어떻게 실행되는지 공식적으로 만든 실행 순서표 같은것이다.
 
