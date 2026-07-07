@@ -105,6 +105,30 @@ hr {
   margin: 2.5rem 0;
 }
 
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.1rem;
+  font-size: 0.95em;
+  display: block;
+  overflow-x: auto; /* 좁은 화면에서 표가 가로로 스크롤되도록 */
+}
+
+th, td {
+  border: 1px solid var(--border);
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+}
+
+thead th {
+  background: var(--code-bg);
+  font-weight: 600;
+}
+
+tbody tr:nth-child(even) {
+  background: var(--code-bg);
+}
+
 /* ==========================================================
    헤더 & 네비게이션
    ========================================================== */
@@ -280,4 +304,23 @@ body::before {
   overflow: hidden;
   clip: rect(0 0 0 0);
   white-space: nowrap;
+}
+
+/*마커 볼드*/
+ol > li::marker{
+  font-weight: 700;
+}
+/*2중 이미지*/
+.img-row {
+  display: flex;
+  gap: 0.5rem;
+}
+.img-row img {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.post-content > p > img {
+  display: block;
+  margin: 0 auto;
 }
