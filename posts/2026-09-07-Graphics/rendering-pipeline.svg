@@ -1,0 +1,158 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 752 366" width="752" height="366" role="img" aria-label="렌더링 파이프라인: 애플리케이션, 지오메트리 처리, 래스터화, 픽셀 처리 4단계와 각 세부 과정">
+
+  <style>
+    :root {
+      --bg: #ffffff; --text: #1f2328; --muted: #57606a;
+      --panel: #f6f8fa; --panel-stroke: #d0d7de;
+      --badge: #0969da; --badge-text: #ffffff;
+      --prog: #ddf4ff; --prog-stroke: #54aeff;
+      --fixed: #ffffff; --fixed-stroke: #d0d7de;
+      --cpu: #fff1e5; --cpu-stroke: #ffb77c;
+      --out: #dafbe1; --out-stroke: #4ac26b;
+      --flow: #0969da; --arrow: #8c959f;
+      --pill: #fff8c5; --pill-stroke: #d4a72c; --pill-text: #633c01;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #14171a; --text: #e6e8ea; --muted: #8b949e;
+        --panel: #1c2128; --panel-stroke: #2d333b;
+        --badge: #58a6ff; --badge-text: #0d1117;
+        --prog: #0c2d6b; --prog-stroke: #388bfd;
+        --fixed: #22272e; --fixed-stroke: #444c56;
+        --cpu: #3d2a14; --cpu-stroke: #bd561d;
+        --out: #0f3d24; --out-stroke: #2ea043;
+        --flow: #58a6ff; --arrow: #768390;
+        --pill: #3b2e00; --pill-stroke: #9e6a03; --pill-text: #e3b341;
+      }
+    }
+    text { font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Pretendard, 'Noto Sans KR', 'Segoe UI', 'Malgun Gothic', sans-serif; fill: var(--text); }
+    .bg { fill: var(--bg); }
+    .muted { fill: var(--muted); }
+    .panel { fill: var(--panel); stroke: var(--panel-stroke); stroke-width: 1; }
+    .divider { stroke: var(--panel-stroke); stroke-width: 1; }
+    .badge { fill: var(--badge); }
+    .badge-text { fill: var(--badge-text); font-weight: 700; font-size: 11px; }
+    .h-title { font-size: 14px; font-weight: 700; }
+    .b-title { font-size: 13px; font-weight: 700; }
+    .b-desc { font-size: 11px; fill: var(--muted); }
+    .box-prog { fill: var(--prog); stroke: var(--prog-stroke); stroke-width: 1.2; }
+    .box-fixed { fill: var(--fixed); stroke: var(--fixed-stroke); stroke-width: 1.2; }
+    .box-cpu { fill: var(--cpu); stroke: var(--cpu-stroke); stroke-width: 1.2; }
+    .box-out { fill: var(--out); stroke: var(--out-stroke); stroke-width: 1.2; }
+    .flow { stroke: var(--flow); stroke-width: 2.2; fill: none; }
+    .flow-head { fill: var(--flow); }
+    .arrow { stroke: var(--arrow); stroke-width: 1.4; fill: none; }
+    .arrow-head { fill: var(--arrow); }
+    .bracket { stroke: var(--arrow); stroke-width: 1.2; fill: none; }
+    .bracket-text { font-size: 11px; font-weight: 700; fill: var(--muted); letter-spacing: 0.5px; }
+    .pill { fill: var(--pill); stroke: var(--pill-stroke); stroke-width: 1; }
+    .pill-text { font-size: 9px; font-weight: 700; fill: var(--pill-text); }
+    .legend { font-size: 11px; fill: var(--muted); }
+  </style>
+  <defs>
+    <marker id="flowHead" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" class="flow-head"/>
+    </marker>
+    <marker id="arrowHead" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" class="arrow-head"/>
+    </marker>
+  </defs>
+
+<rect class="bg" x="0" y="0" width="752" height="366" rx="12"/>
+<path class="bracket" d="M12,29 V24 H77.0 M111.0,24 H176 V29"/>
+<text class="bracket-text" x="94.0" y="28" text-anchor="middle">CPU</text>
+
+<path class="bracket" d="M200,29 V24 H453.0 M487.0,24 H740 V29"/>
+<text class="bracket-text" x="470.0" y="28" text-anchor="middle">GPU</text>
+
+<rect class="panel" x="12" y="38" width="164" height="288" rx="10"/>
+<line class="divider" x1="12" y1="82" x2="176" y2="82"/>
+<circle class="badge" cx="34" cy="60" r="10"/>
+<text class="badge-text" x="34" y="64" text-anchor="middle">1</text>
+<text class="h-title" x="52" y="65">애플리케이션</text>
+<line class="flow" x1="178" y1="60" x2="198" y2="60" marker-end="url(#flowHead)"/>
+<rect class="box-cpu" x="20" y="98" width="148" height="62" rx="7"/>
+<text class="b-title" x="94.0" y="119" text-anchor="middle">게임 로직</text>
+<text class="b-desc" x="94.0" y="136" text-anchor="middle">입력 처리, 물리,</text>
+<text class="b-desc" x="94.0" y="150" text-anchor="middle">애니메이션 계산</text>
+<line class="arrow" x1="94.0" y1="162" x2="94.0" y2="174" marker-end="url(#arrowHead)"/>
+<rect class="box-cpu" x="20" y="176" width="148" height="62" rx="7"/>
+<text class="b-title" x="94.0" y="197" text-anchor="middle">컬링 (Culling)</text>
+<text class="b-desc" x="94.0" y="214" text-anchor="middle">카메라에 안 보이는</text>
+<text class="b-desc" x="94.0" y="228" text-anchor="middle">오브젝트 미리 제외</text>
+<line class="arrow" x1="94.0" y1="240" x2="94.0" y2="252" marker-end="url(#arrowHead)"/>
+<rect class="box-cpu" x="20" y="254" width="148" height="62" rx="7"/>
+<text class="b-title" x="94.0" y="275" text-anchor="middle">드로우 콜 (Draw Call)</text>
+<text class="b-desc" x="94.0" y="292" text-anchor="middle">메시·머티리얼·셰이더를</text>
+<text class="b-desc" x="94.0" y="306" text-anchor="middle">GPU에 명령으로 전달</text>
+<rect class="panel" x="200" y="38" width="164" height="288" rx="10"/>
+<line class="divider" x1="200" y1="82" x2="364" y2="82"/>
+<circle class="badge" cx="222" cy="60" r="10"/>
+<text class="badge-text" x="222" y="64" text-anchor="middle">2</text>
+<text class="h-title" x="240" y="65">지오메트리 처리</text>
+<line class="flow" x1="366" y1="60" x2="386" y2="60" marker-end="url(#flowHead)"/>
+<rect class="box-prog" x="208" y="98" width="148" height="62" rx="7"/>
+<text class="b-title" x="282.0" y="119" text-anchor="middle">버텍스 셰이더</text>
+<text class="b-desc" x="282.0" y="136" text-anchor="middle">정점 위치 변환</text>
+<text class="b-desc" x="282.0" y="150" text-anchor="middle">로컬→월드→뷰→클립 공간</text>
+<line class="arrow" x1="282.0" y1="162" x2="282.0" y2="174" marker-end="url(#arrowHead)"/>
+<rect class="box-prog" x="208" y="176" width="148" height="62" rx="7"/>
+<text class="b-title" x="282.0" y="197" text-anchor="middle">지오메트리 셰이더</text>
+<text class="b-desc" x="282.0" y="214" text-anchor="middle">(테셀레이션 셰이더 포함)</text>
+<text class="b-desc" x="282.0" y="228" text-anchor="middle">정점을 추가·삭제·변형</text>
+<rect class="pill" x="322" y="169" width="28" height="14" rx="7"/>
+<text class="pill-text" x="336.0" y="179" text-anchor="middle">선택</text>
+<line class="arrow" x1="282.0" y1="240" x2="282.0" y2="252" marker-end="url(#arrowHead)"/>
+<rect class="box-fixed" x="208" y="254" width="148" height="62" rx="7"/>
+<text class="b-title" x="282.0" y="275" text-anchor="middle">클리핑 · 뷰포트 변환</text>
+<text class="b-desc" x="282.0" y="292" text-anchor="middle">화면 밖 부분은 잘라내고</text>
+<text class="b-desc" x="282.0" y="306" text-anchor="middle">화면(픽셀) 좌표로 변환</text>
+<rect class="panel" x="388" y="38" width="164" height="288" rx="10"/>
+<line class="divider" x1="388" y1="82" x2="552" y2="82"/>
+<circle class="badge" cx="410" cy="60" r="10"/>
+<text class="badge-text" x="410" y="64" text-anchor="middle">3</text>
+<text class="h-title" x="428" y="65">래스터화</text>
+<line class="flow" x1="554" y1="60" x2="574" y2="60" marker-end="url(#flowHead)"/>
+<rect class="box-fixed" x="396" y="98" width="148" height="62" rx="7"/>
+<text class="b-title" x="470.0" y="119" text-anchor="middle">삼각형 설정</text>
+<text class="b-desc" x="470.0" y="136" text-anchor="middle">삼각형의 변·기울기 등</text>
+<text class="b-desc" x="470.0" y="150" text-anchor="middle">순회에 필요한 값 계산</text>
+<line class="arrow" x1="470.0" y1="162" x2="470.0" y2="174" marker-end="url(#arrowHead)"/>
+<rect class="box-fixed" x="396" y="176" width="148" height="62" rx="7"/>
+<text class="b-title" x="470.0" y="197" text-anchor="middle">삼각형 순회</text>
+<text class="b-desc" x="470.0" y="214" text-anchor="middle">삼각형이 덮는 픽셀마다</text>
+<text class="b-desc" x="470.0" y="228" text-anchor="middle">프래그먼트 생성</text>
+<line class="arrow" x1="470.0" y1="240" x2="470.0" y2="252" marker-end="url(#arrowHead)"/>
+<rect class="box-fixed" x="396" y="254" width="148" height="62" rx="7"/>
+<text class="b-title" x="470.0" y="275" text-anchor="middle">속성 보간</text>
+<text class="b-desc" x="470.0" y="292" text-anchor="middle">정점의 UV·법선·색을</text>
+<text class="b-desc" x="470.0" y="306" text-anchor="middle">프래그먼트마다 보간</text>
+<rect class="panel" x="576" y="38" width="164" height="288" rx="10"/>
+<line class="divider" x1="576" y1="82" x2="740" y2="82"/>
+<circle class="badge" cx="598" cy="60" r="10"/>
+<text class="badge-text" x="598" y="64" text-anchor="middle">4</text>
+<text class="h-title" x="616" y="65">픽셀 처리</text>
+<rect class="box-prog" x="584" y="98" width="148" height="62" rx="7"/>
+<text class="b-title" x="658.0" y="119" text-anchor="middle">픽셀 셰이더</text>
+<text class="b-desc" x="658.0" y="136" text-anchor="middle">(프래그먼트 셰이더)</text>
+<text class="b-desc" x="658.0" y="150" text-anchor="middle">텍스처·조명으로 색 계산</text>
+<line class="arrow" x1="658.0" y1="162" x2="658.0" y2="174" marker-end="url(#arrowHead)"/>
+<rect class="box-fixed" x="584" y="176" width="148" height="62" rx="7"/>
+<text class="b-title" x="658.0" y="197" text-anchor="middle">병합 (Output Merger)</text>
+<text class="b-desc" x="658.0" y="214" text-anchor="middle">깊이·스텐실 테스트,</text>
+<text class="b-desc" x="658.0" y="228" text-anchor="middle">알파 블렌딩</text>
+<line class="arrow" x1="658.0" y1="240" x2="658.0" y2="252" marker-end="url(#arrowHead)"/>
+<rect class="box-out" x="584" y="254" width="148" height="62" rx="7"/>
+<text class="b-title" x="658.0" y="275" text-anchor="middle">프레임 버퍼</text>
+<text class="b-desc" x="658.0" y="292" text-anchor="middle">완성된 이미지 저장</text>
+<text class="b-desc" x="658.0" y="306" text-anchor="middle">→ 모니터에 출력</text>
+<rect class="box-cpu" x="14" y="333" width="14" height="14" rx="3"/>
+<text class="legend" x="34" y="344">CPU 작업</text>
+<rect class="box-prog" x="100.88" y="333" width="14" height="14" rx="3"/>
+<text class="legend" x="120.88" y="344">프로그래밍 가능 (셰이더 코드 작성)</text>
+<rect class="box-fixed" x="331.2" y="333" width="14" height="14" rx="3"/>
+<text class="legend" x="351.2" y="344">고정 기능 (옵션 설정만 가능)</text>
+<rect class="box-out" x="528.52" y="333" width="14" height="14" rx="3"/>
+<text class="legend" x="548.52" y="344">결과</text>
+<text class="legend" x="738" y="344" text-anchor="end">이 과정을 매 프레임 반복</text>
+</svg>
